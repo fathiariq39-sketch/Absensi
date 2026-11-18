@@ -1,0 +1,156 @@
+/* Tema Biru 3D - kompatibel dengan seluruh halaman aplikasi absensi */
+:root{
+  --b50:#eff6ff; --b100:#dbeafe; --b200:#bfdbfe; --b300:#93c5fd;
+  --b500:#3b82f6; --b600:#2563eb; --b700:#1d4ed8; --b800:#1e40af; --b900:#1e3a8a; --b950:#172554;
+  --fg:#0f1e3d; --muted:#5b6b8c; --line:#d6e4fb;
+  --ok:#15803d; --err:#dc2626; --radius:12px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; color:var(--fg);
+  font:15px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  background:radial-gradient(1200px 500px at 50% -150px,var(--b200),transparent 70%),linear-gradient(180deg,var(--b50),#e6efff);
+  background-attachment:fixed;
+}
+
+/* ===== Teks 3D ===== */
+h1{
+  font-size:30px; font-weight:800; margin:0 0 4px; color:var(--b700); letter-spacing:.3px;
+  text-shadow:0 1px 0 var(--b600),0 2px 0 var(--b700),0 3px 0 var(--b800),0 4px 0 var(--b900),0 8px 10px rgba(23,37,84,.35);
+}
+h3{font-size:16px;font-weight:700;margin:0 0 14px;color:var(--b800);text-shadow:0 1px 0 #fff,0 2px 0 var(--b200)}
+.muted{color:var(--muted);margin:0 0 16px}
+
+/* ===== Navigasi ===== */
+.nav{
+  position:sticky; top:0; z-index:10;
+  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;
+  padding:12px 28px; color:#fff;
+  background:linear-gradient(180deg,var(--b600),var(--b800));
+  box-shadow:0 4px 0 var(--b900),0 10px 24px rgba(23,37,84,.35);
+}
+.brand{
+  font-size:20px; font-weight:800; letter-spacing:.5px; color:#fff;
+  text-shadow:0 1px 0 var(--b300),0 2px 0 var(--b600),0 3px 0 var(--b800),0 4px 0 var(--b900),0 6px 8px rgba(0,0,0,.4);
+}
+.links{display:flex;flex-wrap:wrap;gap:6px}
+.links a{
+  color:var(--b100); text-decoration:none; padding:6px 14px; border-radius:10px; font-weight:600;
+  transition:transform .15s,background .15s,box-shadow .15s;
+}
+.links a:hover{
+  color:#fff; background:rgba(255,255,255,.14); transform:translateY(-2px);
+  box-shadow:0 3px 0 rgba(23,37,84,.45);
+}
+.links a.logout{background:var(--b900);box-shadow:0 3px 0 var(--b950);color:#fff}
+.links a.logout:hover{background:var(--b950)}
+
+/* ===== Layout ===== */
+.container{max-width:1040px;margin:36px auto;padding:0 20px}
+.card{
+  background:linear-gradient(180deg,#fff,#f8fbff);
+  border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; margin:18px 0;
+  box-shadow:0 1px 0 #fff inset,0 4px 0 var(--b200),0 14px 28px rgba(30,64,175,.12);
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 1px 0 #fff inset,0 6px 0 var(--b200),0 20px 34px rgba(30,64,175,.16)}
+.login-box{max-width:360px;margin:80px auto}
+.login-box h2{margin:0;font-size:28px;font-weight:800;color:var(--b700);text-shadow:0 1px 0 var(--b600),0 2px 0 var(--b700),0 3px 0 var(--b800),0 7px 9px rgba(23,37,84,.3)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin:18px 0}
+.stat{
+  display:block; text-align:center; padding:22px 16px; text-decoration:none;
+  color:var(--muted); font-size:13px; font-weight:600;
+  background:linear-gradient(180deg,#fff,var(--b50)); border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:0 1px 0 #fff inset,0 5px 0 var(--b300),0 14px 24px rgba(30,64,175,.14);
+  transition:transform .15s,box-shadow .15s;
+}
+a.stat:hover{transform:translateY(-4px);box-shadow:0 1px 0 #fff inset,0 9px 0 var(--b300),0 20px 30px rgba(30,64,175,.2)}
+a.stat:active{transform:translateY(3px);box-shadow:0 1px 0 #fff inset,0 2px 0 var(--b300),0 4px 8px rgba(30,64,175,.2)}
+.stat b{
+  display:block; font-size:36px; font-weight:800; color:var(--b600);
+  text-shadow:0 1px 0 var(--b500),0 2px 0 var(--b700),0 3px 0 var(--b800),0 4px 0 var(--b900),0 8px 8px rgba(23,37,84,.3);
+}
+
+/* ===== Form ===== */
+label{display:block;font-size:13px;font-weight:600;color:var(--b800);margin:12px 0 5px}
+input,select{
+  width:100%; padding:9px 12px; font:inherit; color:var(--fg); background:#fff;
+  border:1px solid var(--b200); border-radius:10px; outline:none;
+  box-shadow:inset 0 2px 4px rgba(30,64,175,.1);
+  transition:border-color .15s,box-shadow .15s;
+}
+input:focus,select:focus{border-color:var(--b500);box-shadow:inset 0 2px 4px rgba(30,64,175,.1),0 0 0 3px rgba(59,130,246,.25)}
+input[type=radio]{width:18px;height:18px;padding:0;accent-color:var(--b600);box-shadow:none}
+.inline-form{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.inline-form>*{width:auto;flex:1 1 150px}
+.inline-form .btn{flex:0 0 auto;margin-top:0}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0 18px}
+.form-grid .end{align-self:end}
+
+/* ===== Tombol 3D (bisa "ditekan") ===== */
+.btn{
+  display:inline-block; margin-top:14px; padding:9px 18px; font:inherit; font-size:14px; font-weight:700;
+  color:#fff; text-decoration:none; text-shadow:0 1px 1px rgba(0,0,0,.3); cursor:pointer;
+  background:linear-gradient(180deg,var(--b500),var(--b700)); border:0; border-radius:10px;
+  box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 5px 0 var(--b900),0 9px 14px rgba(23,37,84,.3);
+  transition:transform .08s,box-shadow .08s,filter .15s;
+}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 1px 0 var(--b900),0 2px 4px rgba(23,37,84,.3)}
+.btn.gray{color:var(--b800);text-shadow:0 1px 0 #fff;background:linear-gradient(180deg,#fff,var(--b100));box-shadow:0 1px 0 #fff inset,0 5px 0 var(--b300),0 9px 14px rgba(30,64,175,.18)}
+.btn.gray:active{box-shadow:0 1px 0 #fff inset,0 1px 0 var(--b300),0 2px 4px rgba(30,64,175,.2)}
+.btn.red{background:linear-gradient(180deg,#ef4444,#b91c1c);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 5px 0 #7f1d1d,0 9px 14px rgba(127,29,29,.3)}
+.btn.red:active{box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 1px 0 #7f1d1d,0 2px 4px rgba(127,29,29,.3)}
+.btn.sm{margin:0;padding:5px 12px;font-size:13px;border-radius:8px;box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 3px 0 var(--b900),0 6px 8px rgba(23,37,84,.25)}
+.btn.sm.red{box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 3px 0 #7f1d1d,0 6px 8px rgba(127,29,29,.25)}
+.btn.sm:active{transform:translateY(2px);box-shadow:0 1px 0 var(--b900)}
+.btn.sm.red:active{box-shadow:0 1px 0 #7f1d1d}
+.actions{display:flex;gap:12px;margin-top:8px}
+
+/* ===== Tabel ===== */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+th{
+  padding:11px 10px; text-align:left; font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  color:#fff; background:linear-gradient(180deg,var(--b600),var(--b800)); text-shadow:0 1px 1px rgba(0,0,0,.3);
+}
+th:first-child{border-radius:10px 0 0 10px}
+th:last-child{border-radius:0 10px 10px 0}
+td{padding:10px;text-align:left;border-bottom:1px solid var(--line)}
+tr:hover td{background:var(--b50)}
+tr:last-child td{border-bottom:0}
+td.c,th.c{text-align:center}
+td.aksi{display:flex;gap:8px;align-items:center}
+td.aksi form{margin:0}
+
+/* ===== Notifikasi ===== */
+.alert{
+  padding:12px 16px; margin:14px 0; font-weight:600; font-size:14px; border-radius:10px;
+  background:#fff; border:1px solid var(--line); border-left-width:5px;
+  box-shadow:0 4px 0 var(--b100),0 8px 16px rgba(30,64,175,.1);
+}
+.alert.ok{border-left-color:var(--ok);color:var(--ok)}
+.alert.err{border-left-color:var(--err);color:var(--err)}
+
+/* ===== Status absensi ===== */
+.badge{
+  display:inline-block; padding:2px 12px; font-size:12px; font-weight:700; border-radius:99px;
+  box-shadow:0 2px 0 rgba(0,0,0,.18),0 1px 0 rgba(255,255,255,.6) inset;
+}
+.badge.hadir{background:#dcfce7;color:#166534}
+.badge.izin{background:var(--b100);color:var(--b800)}
+.badge.sakit{background:#fef3c7;color:#92400e}
+.badge.alfa{background:#fee2e2;color:#991b1b}
+
+/* ===== Responsif & cetak ===== */
+@media(max-width:600px){.nav{padding:10px 16px}.container{margin:22px auto}h1{font-size:24px}}
+@media print{
+  body{background:#fff}
+  .nav,.no-print,.btn{display:none!important}
+  .container{margin:0;max-width:none}
+  .card{border:0;box-shadow:none;background:#fff;padding:0}
+  h1,h3,.stat b{text-shadow:none;color:#000}
+  th{background:#eee;color:#000;text-shadow:none}
+}
